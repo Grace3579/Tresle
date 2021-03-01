@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Business;
 
 class BusinessController extends Controller
 {
@@ -20,7 +21,7 @@ class BusinessController extends Controller
     {
         $validated = $request->validated();
         //return Business::create($request->all());
-$student = new Business
+    $student = new Business;
     $student->name = $request->name;
     $student->price = $request->price;
     $student->city = $request->city;
@@ -29,7 +30,7 @@ $student = new Business
     return response()->json([
         "message" => "business record created"
     ], 201);
-  }
+  
     }
 
     public function update(Request $request, $id)

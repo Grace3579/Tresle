@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use app\Business;
+use App\Models\Business;
+use App\Http\Controllers;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,15 +20,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 /*
-Route::get('get-businesses', function() {
+Route::get('businesses', function() {
     return Business::all();
 });*/
 
-Route::get('get-businesses', 'BusinessController@index');
+Route::get('get-businesses', 'App\Http\Controllers\TresleController@index')->name('get-businesses');
 
 /* 
 Route::get('get-business/{id}', function($id) {
-    return Business::find($id);
+    return Business::find($id)->name('get-business');
 });
 
 Route::post('store-business', function(Request $request) {
@@ -36,18 +37,18 @@ Route::post('store-business', function(Request $request) {
 
 Route::put('update-business/{id}', function(Request $request, $id) {
     $business = Busniess::findOrFail($id);
-    $busniess->update($request->all());
+    $business->update($request->all());
 
     return $busniess;
 });
 
 Route::delete('delete-business/{id}', function($id) {
-    Busniess::find($id)->delete();
+    Business::find($id)->delete();
 
     return 204;
 });*/
 
-Route::get('get-business/{id}', 'BusinessController@show');
-Route::post('store-business', 'BusinessController@store');
-Route::put('update-business/{id}', 'BusinessController@update');
-Route::delete('delete-business/{id}', 'BusinessController@delete');
+Route::get('get-business/{id}', 'App\Http\Controllers\TresleController@show')->name('get-business');
+Route::post('store-business', 'App\Http\Controllers\TresleController@store')->name('store-business');
+Route::put('update-business/{id}', 'App\Http\Controllers\TresleController@update')->name('update-business');
+Route::delete('delete-business/{id}', 'App\Http\Controllers\TresleController@destroy')->name('delete-business');

@@ -3,10 +3,13 @@
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
+use App\Models\Business;
 
-class ExampleTest extends TestCase
+class Example extends TestCase
 {
-    /**
+
+  
+   /**
      * A basic test example.
      *
      * @return void

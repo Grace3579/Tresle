@@ -21,6 +21,7 @@ class SaveBusiness extends FormRequest
      *
      * @return array
      */
+/*
     public function rules()
     {
        return [
@@ -28,5 +29,5 @@ class SaveBusiness extends FormRequest
         'price' => 'required|integer|between:10000,10000000',	
         'city' => 'required',
     ];
-    }
+    }*/
 }
